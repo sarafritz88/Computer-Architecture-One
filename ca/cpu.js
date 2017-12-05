@@ -60,7 +60,7 @@ class CPU {
      * startClock
      */
     startClock() {
-        this.clock = setInterval(() => { this.tick(); }, 500);
+        this.clock = setInterval(() => { this.tick(); }, 1);
     }
 
     /**
@@ -126,8 +126,7 @@ class CPU {
     }
 
     /**
-     * multiply the next two concurrent values in memory and place them into current register location
-     * @method MULL
+     * Multiply current and next and store
      */
     MUL() {
         console.log('MUL');
@@ -135,7 +134,7 @@ class CPU {
         const val2 = this.reg[this.mem[this.reg.PC + 2]];
         this.reg[this.curReg] = val2 * val1;
 
-        this.reg.PC += 3;
+        this.reg.PC += 3; // step three
     }
 
     SUB() {
